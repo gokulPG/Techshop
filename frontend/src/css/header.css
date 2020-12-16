@@ -3,7 +3,8 @@
 .custom-topbar {
   background-color: var(--bg-primary);
   padding: 1rem 1rem;
-  z-index: 0;
+  z-index: 100;
+  position: fixed;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -17,7 +18,7 @@
 .custom-topbar h3 {
   color: var(--text-secondary);
   margin: 0;
-  margin-left: 45%;
+  margin-left: 45vw;
 }
 
 /* Side Nav bar */
@@ -25,7 +26,7 @@
 .custom-navbar {
   width: 5rem;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   background-color: var(--bg-primary);
   transition: width 200ms ease;
   z-index: 200;
@@ -48,7 +49,7 @@
 .custom-nav-link {
   display: flex;
   align-items: center;
-  height: 5rem;
+  height: 4.5rem;
   color: var(--text-primary);
   text-decoration: none;
   filter: grayscale(100%) opacity(0.7);
@@ -81,7 +82,7 @@
 }
 
 .custom-navbar:hover {
-  width: 12.5rem;
+  width: 15rem;
 }
 
 .custom-navbar:hover .link-text {

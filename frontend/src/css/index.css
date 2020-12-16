@@ -1,34 +1,54 @@
 :root {
-    font-size: 16px;
-    --text-primary: #b6b6b6;
-    --text-secondary: #ececec;
-    --bg-primary: #23232e;
-    --bg-secondary: #141418;
-    --transition-speed: 600ms;
-  }
-  
-  body {
-    color: black;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-  
-  body::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: #1e1e24;
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background: #9FA3A5;
-  }
-  
-  main {
-    min-height: 90vh;
-    margin-left: 5rem;
-    padding: 1rem;
-  }
+  font-size: 16px;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.main-container {
+  height: 100%;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #9fa3a5;
+}
+
+main {
+  min-height: 90vh;
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+.card-box {
+  box-shadow: 0px 0px 0px grey;
+  transition: box-shadow 0.6s ease-out;
+  box-shadow: 0.8px 0.9px 3px grey;
+}
+
+.card-box:hover {
+  box-shadow: 1px 8px 20px grey;
+  transition: box-shadow 0.6s ease-in;
+}
