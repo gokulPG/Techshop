@@ -1,0 +1,127 @@
+/* topbar */
+
+.custom-topbar {
+  background-color: var(--bg-primary);
+  padding: 1rem 1rem;
+  z-index: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+
+.custom-topbar > div:last-child {
+  margin-left: auto;
+}
+
+.custom-topbar h3 {
+  color: var(--text-secondary);
+  margin: 0;
+  margin-left: 45%;
+}
+
+/* Side Nav bar */
+
+.custom-navbar {
+  width: 5rem;
+  height: 100vh;
+  position: absolute;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+  z-index: 200;
+}
+
+.custom-navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.custom-nav-item {
+  width: 100%;
+}
+
+.custom-nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.custom-nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.link-text-logo {
+  display: none;
+  margin-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+}
+
+.custom-nav-link svg {
+  min-width: 2rem;
+  margin: 0 1.5rem;
+  font-size: 10px;
+}
+
+.custom-navbar:hover {
+  width: 12.5rem;
+}
+
+.custom-navbar:hover .link-text {
+  display: block;
+}
+
+.custom-navbar:hover .link-text-logo {
+  display: block;
+}
+
+.fa-primary {
+  color: #198ada;
+}
+
+.fa-secondary {
+  color: #0f629d;
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: var(--transition-speed);
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: transform var(--transition-speed);
+}
+
+.custom-navbar:hover .logo svg {
+  transform: rotate(-180deg);
+}
