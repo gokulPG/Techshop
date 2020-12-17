@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 .search-btn:hover {
@@ -28,9 +28,9 @@
     outline: none;
     float: left;
     padding: 0;
-    color: white;
+    color: var(--bg-secondary);
     font-size: 16px;
-    transition: 0.4s;
+    transition: 0.3s;
     line-height: 40px;
     width: 0px;
 }

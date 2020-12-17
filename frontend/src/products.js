@@ -77,6 +77,19 @@ const products = [
     rating: 4,
     numReviews: 12,
   },
+  {
+    _id: '7',
+    name: 'Sony WH-1000XM4 Wireless Headphones',
+    image: '/images/sony.jpg',
+    description:
+      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
+    brand: 'Sony',
+    category: 'Electronics',
+    price: 189.99,
+    countInStock: 10,
+    rating: 4.5,
+    numReviews: 52,
+  },
 ]
 
 export default products

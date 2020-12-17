@@ -53,3 +53,8 @@ main {
   transition: box-shadow 0.6s ease-in;
 }
 
+.Blue-underline {
+  border-bottom: 2px solid #0f629d;;
+  padding-bottom: 3px;
+  width: fit-content;
+}
