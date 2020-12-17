@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
 import products from "../products";
+import LazyImage from '../common/LazyImage'
 
 const ProductScreen = ({ match, color }) => {
   const product = products.find((p) => p._id === match.params.id);
@@ -15,7 +16,11 @@ const ProductScreen = ({ match, color }) => {
       </Link>
       <Row>
         <Col md={7}>
-          <Image src={product.image} alt={product.name} fluid />
+          <LazyImage
+            src={product.image}
+            alt={product.name}
+            customHeight="35vw"
+          />
         </Col>
         <Col md={5}>
           <ListGroup className="text-center" variant="flush">
