@@ -72,7 +72,7 @@ const Header = () => {
           </li>
 
           <li className="custom-nav-item">
-            <Link to='/login' className="custom-nav-link">
+            <Link to='/auth' className="custom-nav-link">
               <svg
                 aria-hidden="true"
                 focusable="false"

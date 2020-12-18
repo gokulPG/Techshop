@@ -5,6 +5,7 @@
   --bg-primary: #23232e;
   --bg-secondary: #141418;
   --transition-speed: 600ms;
+  box-sizing: border-box;
 }
 
 html {
@@ -54,7 +55,8 @@ main {
 }
 
 .Blue-underline {
-  border-bottom: 2px solid #0f629d;;
+  border-bottom: 2px solid #0f629d;
   padding-bottom: 3px;
   width: fit-content;
+  color: black;
 }
