@@ -1,0 +1,25 @@
+
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: auto;
+}
+.loader-css {
+  stroke-dasharray: 269.7405090332031px;
+  stroke-dashoffset: 0;
+  animation: heartBeat 10s linear reverse infinite;
+  transform: rotate(-90deg);
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes heartBeat {
+  50% {
+    stroke-dashoffset: 269.7405090332031px;
+  }
+  50.01% {
+    stroke-dashoffset: -269.7405090332031px;
+  }
+}

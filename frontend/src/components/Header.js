@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "../../src/common/Search";
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import "../css/header.css";
 
 const Header = () => {
@@ -48,7 +48,7 @@ const Header = () => {
           </li>
 
           <li className="custom-nav-item">
-            <Link to='/cart' className="custom-nav-link">
+            <NavLink to='/cart' className="custom-nav-link" activeClassName="custom-nav-link-active">
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -68,11 +68,11 @@ const Header = () => {
                 ></path>
               </svg>
               <span className="link-text">CART</span>
-            </Link>
+            </NavLink>
           </li>
 
           <li className="custom-nav-item">
-            <Link to='/auth' className="custom-nav-link">
+            <NavLink to='/auth' className="custom-nav-link" activeClassName="custom-nav-link-active">
               <svg
                 aria-hidden="true"
                 focusable="false"
@@ -92,7 +92,7 @@ const Header = () => {
                 ></path>
               </svg>
               <span className="link-text">SIGN IN</span>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

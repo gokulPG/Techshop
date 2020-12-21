@@ -63,6 +63,13 @@
   text-decoration: none;
 }
 
+.custom-nav-link-active {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
 .link-text-logo {
   display: none;
   margin-left: 1rem;
