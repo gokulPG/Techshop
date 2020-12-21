@@ -8,7 +8,7 @@ import LazyImage from "../common/LazyImage";
 import Loader from "../components/Loader.js";
 import Message from "../components/Message.js";
 
-const ProductScreen = ({history, match, color }) => {
+const ProductScreen = ({ history, match, color }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
@@ -20,8 +20,8 @@ const ProductScreen = ({history, match, color }) => {
   const { loading, error, product } = productDetails;
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`)
-  }
+    history.push(`/cart/${match.params.id}?qty=${qty}`);
+  };
 
   return (
     <div className="product-details-wrapper">
@@ -90,7 +90,11 @@ const ProductScreen = ({history, match, color }) => {
                 </div>
               )}
             </ListGroup>
-            <Button className="btn btn-light btn-outline-dark btn-md w-100 mt-4" onClick={addToCartHandler}>
+            <Button
+              className="btn btn-light btn-outline-dark btn-md w-100 mt-4"
+              onClick={addToCartHandler}
+              disabled={product.countInStock === 0}
+            >
               <i style={{ color }} class="fas fa-shopping-cart"></i>
               <span className="ml-2">Add To Cart</span>
             </Button>
