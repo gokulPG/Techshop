@@ -9,7 +9,7 @@ import Loader from "../components/Loader.js";
 import Message from "../components/Message.js";
 
 const ProductScreen = ({history, match, color }) => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {

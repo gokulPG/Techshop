@@ -44,6 +44,7 @@
 
 .custom-nav-item {
   width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .custom-nav-link {
@@ -116,7 +117,7 @@
 .logo {
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   color: var(--text-secondary);
   background: var(--bg-secondary);
