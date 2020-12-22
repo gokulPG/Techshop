@@ -77,3 +77,7 @@ main {
   background: linear-gradient(to right, #0f629d, #198ada);
   color: #fff;
 }
+
+.alert {
+  margin-bottom: 0.5rem;
+}

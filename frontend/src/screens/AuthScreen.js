@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Login from "../components/Login.js";
+import Register from '../components/Register.js';
 import "../css/auth.css";
 
 const AuthScreen = ({location, history}) => {
@@ -13,21 +14,7 @@ const AuthScreen = ({location, history}) => {
         id="auth-container"
       >
         <div className="form-container sign-up-container">
-          <form action="#">
-            <h3>Create Account</h3>
-            <div className="social-container">
-              <a href="#" className="social">
-                <i className="fab fa-google mr-3"></i>{" "}
-                <span style={{ fontSize: "0.9rem" }}>Sign up with google</span>
-              </a>
-            </div>
-            <div className="mt-2"></div>
-            <h5>OR</h5>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button className="mt-4">Sign Up</button>
-          </form>
+           <Register location={location} history={history} />
         </div>
         <div className="form-container sign-in-container">
           <Login location={location} history={history} />
