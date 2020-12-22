@@ -1,13 +1,13 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Container, Row } from "react-bootstrap";
-import Loader from "./components/Loader.js";
+import { Container } from "react-bootstrap";
 const Header = lazy(() => import("./components/Header"));
 const Footer = lazy(() => import("./components/Footer"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const ProductScreen = lazy(() => import("./screens/ProductScreen"));
 const CartScreen = lazy(() => import("./screens/CartScreen"))
 const AuthScreen = lazy(() => import("./screens/AuthScreen"))
+const ProfileScreen = lazy(() => import("./screens/ProfileScreen"))
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
               <Switch>
                 <Route path="/" component={HomeScreen} exact />
                 <Route path="/auth" component={AuthScreen} exact />
+                <Route path="/profile" component={ProfileScreen} exact />
                 <Route path="/product/:id" component={ProductScreen} />
                 <Route path="/cart/:id?" component={CartScreen} />
               </Switch>

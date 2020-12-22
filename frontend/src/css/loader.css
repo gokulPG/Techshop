@@ -1,10 +1,12 @@
-
 .loader {
-    position: fixed;
+  /* position: fixed;
     top: 50%;
     left: 50%;
     width: 100vw;
-    height: auto;
+    height: auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .loader-css {
   stroke-dasharray: 269.7405090332031px;

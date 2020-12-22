@@ -8,8 +8,8 @@ const Loader = () => {
         <circle
           id="c"
           fill="none"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
           stroke="black"
           cx="45"
           cy="45"

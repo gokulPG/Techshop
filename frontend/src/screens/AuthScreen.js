@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Login from "../components/Login.js";
 import "../css/auth.css";
 
-const AuthScreen = () => {
+const AuthScreen = ({location, history}) => {
   const [isClicked, setClicked] = useState(false);
   return (
     <div className="auth-wrapper">
@@ -17,7 +18,7 @@ const AuthScreen = () => {
             <div className="social-container">
               <a href="#" className="social">
                 <i className="fab fa-google mr-3"></i>{" "}
-                <span style={{fontSize: "0.9rem"}}>Sign up with google</span>
+                <span style={{ fontSize: "0.9rem" }}>Sign up with google</span>
               </a>
             </div>
             <div className="mt-2"></div>
@@ -29,23 +30,7 @@ const AuthScreen = () => {
           </form>
         </div>
         <div className="form-container sign-in-container">
-          <form action="#">
-            <h3>Sign in</h3>
-            <div className="social-container">
-              <a href="#" className="social">
-                <i className="fab fa-google mr-3"></i>
-                <span style={{fontSize: "0.9rem"}}>Sign in with google</span>
-              </a>
-            </div>
-            <div className="mt-2"></div>
-            <h5>OR</h5>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#" className="social">
-              Forgot your password?
-            </a>
-            <button>Sign In</button>
-          </form>
+          <Login location={location} history={history} />
         </div>
         <div className="overlay-container">
           <div className="overlay">
