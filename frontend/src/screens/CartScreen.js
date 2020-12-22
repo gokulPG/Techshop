@@ -32,9 +32,9 @@ const CartScreen = ({ match, location, history, color }) => {
 
   return (
     <>
-      <h3 className="border border-dark p-3 d-inline-block gradient-blue-background">
+      <h4 className="border border-dark p-3 d-inline-block gradient-blue-background">
         My Bag
-      </h3>
+      </h4>
       <Row className="mt-3">
         <Col md={8}>
           {cartItems.length === 0 ? (
@@ -101,28 +101,28 @@ const CartScreen = ({ match, location, history, color }) => {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h3 className="m-0">Order Summary</h3>
+                <h5 className="m-0">Order Summary</h5>
               </ListGroup.Item>
-              <ListGroup.Item>
-                <Row className="mt-3">
+              <ListGroup.Item className="">
+                <Row className="mt-3 mb-0 d-flex justify-content-center align-items-center">
                   <Col md={8}>
-                    <h5>Bag Total Items</h5>
+                    <p className="m-0">Bag Total Items</p>
                   </Col>
                   <Col md={4}>
                     {cartItems.reduce((acc, item) => acc + item.qty, 0)}
                   </Col>
                 </Row>
-                <Row className="mt-3">
+                <Row className="mt-3 mb-0 d-flex justify-content-center align-items-center">
                   <Col md={8}>
-                    <h5>DELIVERY</h5>
+                    <p className="m-0">Delivery</p>
                   </Col>
                   <Col md={4} style={{ color: "#0f629d", fontWeight: "bold" }}>
                     FREE
                   </Col>
                 </Row>
-                <Row className="mt-3">
+                <Row className="mt-3 mb-0 d-flex justify-content-center align-items-center">
                   <Col md={8}>
-                    <h5>Order Total</h5>
+                    <p className="m-0">Order Total</p>
                   </Col>
                   <Col md={4}>
                     $
