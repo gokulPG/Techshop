@@ -20,6 +20,7 @@ const HomeScreen = () => {
   return (
     <>
       <h2 className="Blue-underline">Latest Products</h2>
+      <div className="mt-4"></div>
       {loading ? (
         <Loader />
       ) : error ? (
