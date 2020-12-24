@@ -16,3 +16,11 @@
 .nav-item {
     margin-right: 0.9rem;
 }
+
+.order-sub-title {
+  font-weight: bold;
+  border: 2px solid lightgrey;
+  background: lightgray;
+  margin-right: 10px;
+  padding: 3px;
+}

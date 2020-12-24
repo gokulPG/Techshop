@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 const Header = lazy(() => import("./components/Header"));
 const Footer = lazy(() => import("./components/Footer"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
@@ -9,6 +9,8 @@ const CartScreen = lazy(() => import("./screens/CartScreen"))
 const AuthScreen = lazy(() => import("./screens/AuthScreen"))
 const ProfileScreen = lazy(() => import("./screens/ProfileScreen"))
 const ShippingScreen = lazy(() => import("./screens/ShippingScreen"))
+const PaymentScreen = lazy(() => import("./screens/PaymentScreen"))
+const PlaceOrderScreen = lazy(() => import("./screens/PlaceOrderScreen"))
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
                 <Route path="/" component={HomeScreen} exact />
                 <Route path="/auth" component={AuthScreen} exact />
                 <Route path="/profile" component={ProfileScreen} exact />
-                <Route path='/shipping' component={ShippingScreen} />
+                <Route path='/shipping' component={ShippingScreen} exact />
+                <Route path='/payment' component={PaymentScreen} />
+                <Route path='/placeorder' component={PlaceOrderScreen} />
                 <Route path="/product/:id" component={ProductScreen} />
                 <Route path="/cart/:id?" component={CartScreen} />
               </Switch>
