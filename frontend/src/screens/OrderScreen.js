@@ -8,7 +8,7 @@ import Message from "../components/Message";
 import LazyImage from "../common/LazyImage";
 import Loader from "../components/Loader";
 import { getOrderDetails, payOrder } from "../actions/orderActions";
-import * as types from '../constants/orderConstants';
+import * as types from "../constants/orderConstants";
 import "../css/shipping.css";
 
 const OrderScreen = ({ match }) => {
@@ -49,7 +49,7 @@ const OrderScreen = ({ match }) => {
     };
 
     if (!order || successPay || order._id !== orderId) {
-      dispatch({type: types.ORDER_PAY_RESET})
+      dispatch({ type: types.ORDER_PAY_RESET });
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
       if (!window.paypal) {
@@ -61,11 +61,9 @@ const OrderScreen = ({ match }) => {
   }, [dispatch, order, orderId, successPay]);
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult)
-    dispatch(payOrder(orderId, paymentResult))
-  }
-
-
+    console.log(paymentResult);
+    dispatch(payOrder(orderId, paymentResult));
+  };
 
   return loading ? (
     <Loader />
@@ -81,16 +79,21 @@ const OrderScreen = ({ match }) => {
         }}
       >{`ORDER ${order._id}`}</h2>
       <Row className="mt-4">
-        <Col md={8}>
+        <Col md={8} style={{ border: "1px solid lightgray" }}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h4>Shipping</h4>
 
               <p>
-                <strong>Name:</strong> {order.user.name}
+                <strong className="order-sub-title">
+                  Name <i className="fas fa-angle-double-right"></i>
+                </strong>{" "}
+                {order.user.name}
               </p>
               <p>
-                <strong>Email: </strong>
+                <strong className="order-sub-title">
+                  Email <i className="fas fa-angle-double-right"></i>
+                </strong>
                 <a href={`mailTo: ${order.user.email}`}>{order.user.email}</a>
               </p>
               <p className="mt-3">
@@ -197,7 +200,7 @@ const OrderScreen = ({ match }) => {
                   <Loader />
                 ) : (
                   <PayPalButton
-                    amount={order.totalPrice*74}
+                    amount={order.totalPrice * 74}
                     currency="INR"
                     onSuccess={successPaymentHandler}
                   />

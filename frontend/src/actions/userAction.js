@@ -1,5 +1,7 @@
 import axios from "axios";
 import * as types from "../constants/userConstants";
+import {ORDER_LIST_MY_RESET} from '../constants/orderConstants';
+import {CART_ADDRESS_RESET} from '../constants/cartConstants';
 import { redirect } from "../common/Redirect";
 
 export const login = (email, password) => async (dispatch) => {
@@ -40,8 +42,12 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem("userInfo");
+  // localStorage.removeItem("userInfo");
+  localStorage.clear();
   dispatch({ type: types.USER_LOGOUT });
+  dispatch({ type: types.USER_DETAILS_RESET });
+  dispatch({ type: ORDER_LIST_MY_RESET });
+  dispatch({type: CART_ADDRESS_RESET})
   dispatch(redirect("/auth"));
 };
 

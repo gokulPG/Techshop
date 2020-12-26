@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Table, Button } from "react-bootstrap";
 import { getUserDetails, updateUserProfile } from "../actions/userAction";
+import { listMyOrders } from "../actions/orderActions";
+import { LinkContainer } from "react-router-bootstrap";
 import Loader from "../components/Loader.js";
 import Message from "../components/Message.js";
 
@@ -23,13 +25,17 @@ const ProfileScreen = ({ location, history }) => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
+  const orderMyList = useSelector((state) => state.orderMyList);
+  const { loading: loadingOrders, error: errorOrders, orders } = orderMyList;
+
   useEffect(() => {
     if (!userInfo) {
       history.push("/login");
     } else {
       dispatch(getUserDetails("profile"));
+      dispatch(listMyOrders());
     }
-  }, [history, userInfo]);
+  }, [dispatch, history, userInfo]);
 
   useEffect(() => {
     if (user !== undefined) {
@@ -44,14 +50,18 @@ const ProfileScreen = ({ location, history }) => {
       setMessage("Passwords do not match");
     } else {
       //DISPATCH UPDATE PROFILE
-      dispatch(updateUserProfile({id: user._id, name, email, password}))
+      dispatch(updateUserProfile({ id: user._id, name, email, password }));
     }
   };
 
   return (
-    <Row>
+    <Row style={{ marginTop: "8rem" }}>
       <Col md={4}>
-        <form action="#" onSubmit={submitHandler} style={{ textAlign: "center"}}>
+        <form
+          action="#"
+          onSubmit={submitHandler}
+          style={{ textAlign: "center" }}
+        >
           <h3>Update Profile</h3>
           {message && <Message variant="danger">{message}</Message>}
           {error && <Message variant="danger">{error}</Message>}
@@ -88,7 +98,60 @@ const ProfileScreen = ({ location, history }) => {
           </button>
         </form>
       </Col>
-      <Col md={8}></Col>
+      <Col md={8}>
+        <h3>My Orders</h3>
+        {loadingOrders ? (
+          <Loader />
+        ) : errorOrders ? (
+          <Message variant="danger">{errorOrders}</Message>
+        ) : (
+          <Table striped bordered hover responsive className="table-sm">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>DATE</th>
+                <th>TOTAL</th>
+                <th>PAID</th>
+                <th>DELIVERED</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order._id}>
+                  <td>{order._id}</td>
+                  <td>
+                    {order.createdAt !== undefined &&
+                      order.createdAt.substring(0, 10)}
+                  </td>
+                  <td>${order.totalPrice}</td>
+                  <td>
+                    {order.isPaid ? (
+                      order.paidAt.substring(0, 10)
+                    ) : (
+                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                    )}
+                  </td>
+                  <td>
+                    {order.isDelivered ? (
+                      order.deliveredAt.substring(0, 10)
+                    ) : (
+                      <i className="fas fa-times" style={{ color: "red" }}></i>
+                    )}
+                  </td>
+                  <td>
+                    <LinkContainer to={`/order/${order._id}`}>
+                      <button className="update-profile-btn">
+                        Details
+                      </button>
+                    </LinkContainer>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
+      </Col>
     </Row>
   );
 };
