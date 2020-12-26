@@ -24,7 +24,7 @@ const Header = () => {
     <>
       <nav className="custom-topbar">
         <h3>
-          TECH<i className="fas fa-grip-lines-vertical"></i>SHOP
+          TECH<i class="fab fa-artstation"></i>SHOP
         </h3>
         <div className="search-check">
           <Search />
@@ -34,7 +34,7 @@ const Header = () => {
         <ul className="custom-navbar-nav">
           <li className="logo">
             <Link to="/" className="custom-nav-link">
-              <span className="link-text-logo logo-text">TECH||SHOP</span>
+              <span className="link-text-logo logo-text">TECHSHOP</span>
               <svg
                 aria-hidden="true"
                 focusable="false"
