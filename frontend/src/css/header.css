@@ -3,7 +3,7 @@
 .custom-topbar {
   background-color: var(--bg-primary);
   padding: 1rem 1rem;
-  z-index: 100;
+  z-index: 999;
   position: fixed;
   width: 100vw;
   display: flex;
@@ -29,7 +29,7 @@
   position: fixed;
   background-color: var(--bg-primary);
   transition: width 200ms ease;
-  z-index: 200;
+  z-index: 1000;
 }
 
 .custom-navbar-nav {
