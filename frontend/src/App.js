@@ -5,12 +5,13 @@ const Header = lazy(() => import("./components/Header"));
 const Footer = lazy(() => import("./components/Footer"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const ProductScreen = lazy(() => import("./screens/ProductScreen"));
-const CartScreen = lazy(() => import("./screens/CartScreen"))
-const AuthScreen = lazy(() => import("./screens/AuthScreen"))
-const ProfileScreen = lazy(() => import("./screens/ProfileScreen"))
-const ShippingScreen = lazy(() => import("./screens/ShippingScreen"))
-const PaymentScreen = lazy(() => import("./screens/PaymentScreen"))
-const PlaceOrderScreen = lazy(() => import("./screens/PlaceOrderScreen"))
+const CartScreen = lazy(() => import("./screens/CartScreen"));
+const AuthScreen = lazy(() => import("./screens/AuthScreen"));
+const ProfileScreen = lazy(() => import("./screens/ProfileScreen"));
+const ShippingScreen = lazy(() => import("./screens/ShippingScreen"));
+const PaymentScreen = lazy(() => import("./screens/PaymentScreen"));
+const PlaceOrderScreen = lazy(() => import("./screens/PlaceOrderScreen"));
+const OrderScreen = lazy(() => import("./screens/OrderScreen"));
 
 function App() {
   return (
@@ -24,10 +25,11 @@ function App() {
                 <Route path="/" component={HomeScreen} exact />
                 <Route path="/auth" component={AuthScreen} exact />
                 <Route path="/profile" component={ProfileScreen} exact />
-                <Route path='/shipping' component={ShippingScreen} exact />
-                <Route path='/payment' component={PaymentScreen} />
-                <Route path='/placeorder' component={PlaceOrderScreen} />
-                <Route path="/product/:id" component={ProductScreen} />
+                <Route path="/shipping" component={ShippingScreen} exact />
+                <Route path="/payment" component={PaymentScreen} />
+                <Route path="/placeorder" component={PlaceOrderScreen} />
+                <Route path="/product/:id" component={ProductScreen} exact />
+                <Route path="/order/:id" component={OrderScreen} />
                 <Route path="/cart/:id?" component={CartScreen} />
               </Switch>
             </Container>

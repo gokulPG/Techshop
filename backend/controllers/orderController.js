@@ -34,4 +34,19 @@ const addOrderItems = asyncHandler(async (req, res) => {
   }
 });
 
-export {addOrderItems}
+const getOrderById = asyncHandler(async (req, res) => {
+  //alongside Order info, from User Model name , email fields will be retrieved and added to 'order'
+  const order = await (await Order.findById(req.params.id).populate(
+    "user",
+    "name email"
+));
+
+  if (order) {
+    res.json(order);
+  } else {
+    res.status(404);
+    throw new Error("Order not found");
+  }
+});
+
+export { addOrderItems, getOrderById };
