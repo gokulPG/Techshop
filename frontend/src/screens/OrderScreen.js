@@ -28,8 +28,8 @@ const OrderScreen = ({ match }) => {
   }
 
   useEffect(() => {
-    if(!order || order._id !== orderId) {
-        dispatch(getOrderDetails(orderId))
+    if (!order || order._id !== orderId) {
+      dispatch(getOrderDetails(orderId));
     }
   }, [order, orderId]);
 
@@ -39,7 +39,13 @@ const OrderScreen = ({ match }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <div>
-      <h2 style={{ color: "gray" }}>{`ORDER ${order._id}`}</h2>
+      <h2
+        style={{
+          color: "gray",
+          borderBottom: "2px solid",
+          width: "fit-content",
+        }}
+      >{`ORDER ${order._id}`}</h2>
       <Row className="mt-4">
         <Col md={8}>
           <ListGroup variant="flush">
@@ -61,8 +67,10 @@ const OrderScreen = ({ match }) => {
                 {order.shippingAddress.postalCode},{" "}
                 {order.shippingAddress.country}
               </p>
-                {order.isDelivered ? (
-                <Message variant="success">Delivered on {order.deliveredAt}</Message>
+              {order.isDelivered ? (
+                <Message variant="success">
+                  Delivered on {order.deliveredAt}
+                </Message>
               ) : (
                 <Message variant="danger">Not Delivered</Message>
               )}
