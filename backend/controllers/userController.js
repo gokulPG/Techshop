@@ -31,7 +31,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("User already exists");
   }
 
-  let user
+  let user;
 
   try {
     user = await User.create({
@@ -43,7 +43,6 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(401);
     throw new Error("Invalid name, email or password");
   }
-  
 
   if (user) {
     res.status(201).json({
@@ -87,13 +86,13 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
-    user.name = req.body.name || user.name,
-    user.email = req.body.email || user.email
-    if(req.body.password) {
-      user.password = req.body.password
+    (user.name = req.body.name || user.name),
+      (user.email = req.body.email || user.email);
+    if (req.body.password) {
+      user.password = req.body.password;
     }
 
-    const updatedUser = await user.save()
+    const updatedUser = await user.save();
     res.json({
       _id: updatedUser._id,
       name: updatedUser.name,
@@ -110,9 +109,26 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 //Private route -Admin
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find({});
-  res.json(users)
-})
+  res.json(users);
+});
 
+//Private route -Admin
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    await user.remove();
+    res.json({ message: "User removed" });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
 
-
-export { authUser, getUserProfile, registerUser, updateUserProfile, getUsers };
+export {
+  authUser,
+  getUserProfile,
+  registerUser,
+  updateUserProfile,
+  getUsers,
+  deleteUser,
+};
