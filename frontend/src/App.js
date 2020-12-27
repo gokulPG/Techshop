@@ -12,6 +12,7 @@ const ShippingScreen = lazy(() => import("./screens/ShippingScreen"));
 const PaymentScreen = lazy(() => import("./screens/PaymentScreen"));
 const PlaceOrderScreen = lazy(() => import("./screens/PlaceOrderScreen"));
 const OrderScreen = lazy(() => import("./screens/OrderScreen"));
+const UserListScreen = lazy(() => import('./screens/UserListScreen'));
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/product/:id" component={ProductScreen} exact />
                 <Route path="/order/:id" component={OrderScreen} />
                 <Route path="/cart/:id?" component={CartScreen} />
+                <Route path='/admin/userlist' component={UserListScreen} />
               </Switch>
             </Container>
           </main>
