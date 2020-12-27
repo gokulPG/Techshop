@@ -84,7 +84,7 @@ const OrderScreen = ({ match }) => {
             <ListGroup.Item>
               <h4>Shipping</h4>
 
-              <p>
+              <p className="mt-4">
                 <strong className="order-sub-title">
                   Name <i className="fas fa-angle-double-right"></i>
                 </strong>{" "}
@@ -114,7 +114,7 @@ const OrderScreen = ({ match }) => {
             </ListGroup.Item>
             <ListGroup.Item>
               <h4>Payment Method</h4>
-              <p className="mt-3">
+              <p className="mt-4">
                 <strong className="order-sub-title">
                   Method <i className="fas fa-angle-double-right"></i>
                 </strong>
