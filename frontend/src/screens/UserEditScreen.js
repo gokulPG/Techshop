@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getOrderDetails } from "../actions/orderActions";
-import { getUserDetails } from "../actions/userAction";
+import { getUserDetails, updateUser } from "../actions/userAction";
+import { USER_UPDATE_RESET } from "../constants/userConstants";
 import Loader from "../components/Loader.js";
 import Message from "../components/Message.js";
 
@@ -18,19 +18,32 @@ const UserEditScreen = ({ match, history, color }) => {
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
-  console.log(user, "userEdutScreen")
+  const userUpdate = useSelector((state) => state.userUpdate);
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate,
+  } = userUpdate;
+
+  console.log(user, "userEdutScreen");
   useEffect(() => {
-      if(!user || user._id !== userId) {
-        dispatch(getUserDetails(userId))
+    if (successUpdate) {
+      dispatch({ type: USER_UPDATE_RESET });
+      history.push("/admin/userlist");
+    } else {
+      if (!user || user._id !== userId) {
+        dispatch(getUserDetails(userId));
       } else {
-        setName(user.name)
-        setEmail(user.email)
-        setIsAdmin(user.isAdmin)
+        setName(user.name);
+        setEmail(user.email);
+        setIsAdmin(user.isAdmin);
       }
-  }, [dispatch, user, userId]);
+    }
+  }, [dispatch, user, userId, history, successUpdate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(updateUser({_id: userId, name, email, isAdmin}))
   };
 
   return (
@@ -43,6 +56,8 @@ const UserEditScreen = ({ match, history, color }) => {
         <span className="ml-2 fa-8">Go Back</span>
       </Link>
       <h2 className="text-center">Edit User</h2>
+      {loadingUpdate && <Loader />}
+      {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
       {loading && <Loader /> ? (
         error && <Message variant="danger">{error}</Message>
       ) : (
@@ -87,9 +102,8 @@ const UserEditScreen = ({ match, history, color }) => {
   );
 };
 
-
 UserEditScreen.defaultProps = {
-    color: "#198ada",
-  };
+  color: "#198ada",
+};
 
 export default UserEditScreen;
