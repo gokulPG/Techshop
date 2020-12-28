@@ -12,8 +12,9 @@ const ShippingScreen = lazy(() => import("./screens/ShippingScreen"));
 const PaymentScreen = lazy(() => import("./screens/PaymentScreen"));
 const PlaceOrderScreen = lazy(() => import("./screens/PlaceOrderScreen"));
 const OrderScreen = lazy(() => import("./screens/OrderScreen"));
-const UserListScreen = lazy(() => import('./screens/UserListScreen'));
-const UserEditScreen = lazy(() => import('./screens/UserEditScreen'));
+const UserListScreen = lazy(() => import("./screens/UserListScreen"));
+const UserEditScreen = lazy(() => import("./screens/UserEditScreen"));
+const ProductListScreen = lazy(() => import("./screens/ProductListScreen"));
 
 function App() {
   return (
@@ -33,8 +34,12 @@ function App() {
                 <Route path="/product/:id" component={ProductScreen} exact />
                 <Route path="/order/:id" component={OrderScreen} />
                 <Route path="/cart/:id?" component={CartScreen} />
-                <Route path='/admin/userlist' component={UserListScreen} />
-                <Route path='/admin/user/:id/edit' component={UserEditScreen} />
+                <Route path="/admin/userlist" component={UserListScreen} />
+                <Route
+                  path="/admin/productlist"
+                  component={ProductListScreen}
+                />
+                <Route path="/admin/user/:id/edit" component={UserEditScreen} />
               </Switch>
             </Container>
           </main>
