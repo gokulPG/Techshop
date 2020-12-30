@@ -30,7 +30,7 @@ const ProfileScreen = ({ location, history }) => {
 
   useEffect(() => {
     if (!userInfo) {
-      history.push("/login");
+      history.push("/auth");
     } else {
       dispatch(getUserDetails("profile"));
       dispatch(listMyOrders());
