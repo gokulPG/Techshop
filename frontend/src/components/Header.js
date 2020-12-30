@@ -1,4 +1,5 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import Search from "../../src/common/Search";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +28,7 @@ const Header = () => {
           TECH<i class="fab fa-artstation"></i>SHOP
         </h3>
         <div className="search-check">
-          <Search />
+          <Route render={({ history }) => <Search history={history} />} />
         </div>
       </nav>
       <nav className="custom-navbar">
