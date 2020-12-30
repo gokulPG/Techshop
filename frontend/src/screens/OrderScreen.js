@@ -7,7 +7,11 @@ import { Link } from "react-router-dom";
 import Message from "../components/Message";
 import LazyImage from "../common/LazyImage";
 import Loader from "../components/Loader";
-import { getOrderDetails, payOrder, deliverOrder } from "../actions/orderActions";
+import {
+  getOrderDetails,
+  payOrder,
+  deliverOrder,
+} from "../actions/orderActions";
 import * as types from "../constants/orderConstants";
 import "../css/shipping.css";
 
@@ -42,8 +46,8 @@ const OrderScreen = ({ match }) => {
   }
 
   const deliverHandler = () => {
-    dispatch(deliverOrder(order))
-  }
+    dispatch(deliverOrder(order));
+  };
 
   useEffect(() => {
     const addPayPalScript = async () => {
@@ -60,7 +64,7 @@ const OrderScreen = ({ match }) => {
 
     if (!order || successPay || successDeliver || order._id !== orderId) {
       dispatch({ type: types.ORDER_PAY_RESET });
-      dispatch({type: types.ORDER_DELIVER_RESET}) 
+      dispatch({ type: types.ORDER_DELIVER_RESET });
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
       if (!window.paypal) {
@@ -94,22 +98,25 @@ const OrderScreen = ({ match }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h4>Shipping</h4>
-
+              <hr></hr>
               <p className="mt-4">
-                <strong className="order-sub-title">
-                  Name <i className="fas fa-angle-double-right"></i>
+                <strong className="order-key-title">
+                  <i class="fas fa-angle-double-left"></i> Name{" "}
+                  <i className="fas fa-angle-double-right"></i>
                 </strong>{" "}
                 {order.user.name}
               </p>
               <p>
-                <strong className="order-sub-title">
-                  Email <i className="fas fa-angle-double-right"></i>
+                <strong className="order-key-title">
+                  <i class="fas fa-angle-double-left"></i> Email{" "}
+                  <i className="fas fa-angle-double-right"></i>
                 </strong>
                 <a href={`mailTo: ${order.user.email}`}>{order.user.email}</a>
               </p>
               <p className="mt-3">
-                <strong className="order-sub-title">
-                  Address <i className="fas fa-angle-double-right"></i>
+                <strong className="order-key-title">
+                  <i class="fas fa-angle-double-left"></i> Address{" "}
+                  <i className="fas fa-angle-double-right"></i>
                 </strong>
                 {order.shippingAddress.address},{order.shippingAddress.city},{" "}
                 {order.shippingAddress.postalCode},{" "}
@@ -125,9 +132,11 @@ const OrderScreen = ({ match }) => {
             </ListGroup.Item>
             <ListGroup.Item>
               <h4>Payment Method</h4>
+              <hr></hr>
               <p className="mt-4">
-                <strong className="order-sub-title">
-                  Method <i className="fas fa-angle-double-right"></i>
+                <strong className="order-key-title">
+                  <i class="fas fa-angle-double-left"></i> Method{" "}
+                  <i className="fas fa-angle-double-right"></i>
                 </strong>
                 {order.paymentMethod}
               </p>
@@ -218,12 +227,12 @@ const OrderScreen = ({ match }) => {
                 )}
               </ListGroup.Item>
             )}
-            {loadingDeliver && <Loader /> }
+            {loadingDeliver && <Loader />}
             {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
               <ListGroup.Item>
                 <Button
-                  type='button'
-                  className='btn btn-block'
+                  type="button"
+                  className="btn btn-block"
                   onClick={deliverHandler}
                 >
                   Mark as Delivered
