@@ -6,6 +6,7 @@ import { listProducts } from "../actions/productActions";
 import Loader from "../components/Loader.js";
 import Paginate from "../components/Paginate.js";
 import Message from "../components/Message.js";
+import ProductCarousel from "../components/ProductCarousel";
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -24,7 +25,8 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
-      <h2 className="Blue-underline">Latest Products</h2>
+      {!keyword && <ProductCarousel />}
+      <h2 className="Blue-underline mt-4">Latest Products</h2>
       <div className="mt-4"></div>
       {loading ? (
         <Loader />
@@ -39,7 +41,7 @@ const HomeScreen = ({ match }) => {
               </Col>
             ))}
           </Row>
-          <div className='d-flex justify-content-center'>
+          <div className="d-flex justify-content-center">
             <Paginate
               pages={pages}
               page={page}

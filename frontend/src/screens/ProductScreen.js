@@ -42,6 +42,11 @@ const ProductScreen = ({ history, match, color }) => {
     dispatch(listProductDetails(match.params.id));
   }, [dispatch, match, successProductReview]);
 
+  useEffect(() => {
+    window.scrollTo(0, 20)
+  }, [])
+  
+
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
   };
