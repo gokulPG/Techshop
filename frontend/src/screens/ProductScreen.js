@@ -10,6 +10,7 @@ import Rating from "../components/Rating";
 import LazyImage from "../common/LazyImage";
 import Loader from "../components/Loader.js";
 import Message from "../components/Message.js";
+import Meta from "../components/meta.js";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
 const ProductScreen = ({ history, match, color }) => {
@@ -73,6 +74,7 @@ const ProductScreen = ({ history, match, color }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={7}>
               <LazyImage

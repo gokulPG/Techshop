@@ -6,6 +6,7 @@ import { listProducts } from "../actions/productActions";
 import Loader from "../components/Loader.js";
 import Paginate from "../components/Paginate.js";
 import Message from "../components/Message.js";
+import Meta from "../components/meta.js";
 import ProductCarousel from "../components/ProductCarousel";
 
 const HomeScreen = ({ match }) => {
@@ -25,6 +26,7 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      <Meta />
       {!keyword && <ProductCarousel />}
       <h2 className="Blue-underline mt-4">Latest Products</h2>
       <div className="mt-4"></div>
