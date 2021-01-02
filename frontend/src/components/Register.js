@@ -38,14 +38,14 @@ const Register = ({ location, history }) => {
       <h3>Create Account</h3>
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
-      <div className="social-container">
+      {/* <div className="social-container">
         <a href="#" className="social">
           <i className="fab fa-google mr-3"></i>
           <span style={{ fontSize: "0.9rem" }}>Sign in with google</span>
         </a>
-      </div>
+      </div> */}
       <div className="mt-2"></div>
-      <h5>OR</h5>
+      {/* <h5>OR</h5> */}
       <input
         type="text"
         placeholder="Enter name"

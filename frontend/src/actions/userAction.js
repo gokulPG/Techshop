@@ -4,6 +4,45 @@ import { ORDER_LIST_MY_RESET } from "../constants/orderConstants";
 import { CART_ADDRESS_RESET } from "../constants/cartConstants";
 import { redirect } from "../common/Redirect";
 
+
+export const googleLogin = (tokenData) => async (dispatch) => {
+  try {
+    dispatch({
+      type: types.USER_LOGIN_REQUEST,
+    });
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.post(
+      "/api/auth/googlelogin",
+      { tokenId: tokenData.tokenId},
+      config
+    );
+
+    dispatch({
+      type: types.USER_LOGIN_SUCCESS,
+      payload: data,
+    });
+
+    localStorage.setItem("userInfo", JSON.stringify(data));
+
+    dispatch(redirect("/"));
+  } catch (error) {
+    dispatch({
+      type: types.USER_LOGIN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+}
+
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
