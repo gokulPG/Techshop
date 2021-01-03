@@ -14,7 +14,7 @@
  2. Add Products to the Cart
  3. Checkout process (shipping Address, payment method, etc)
  4. Product reviews and ratings
- 5. Role based JWT authentication (JSON web tokens) and authorization (USER/ADMIN)
+ 5. Role based authentication (JSON web tokens) and authorization (USER/ADMIN)
  6. Products search and pagination 
  7. User profile with orders
  8. Admin product management
