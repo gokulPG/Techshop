@@ -1,6 +1,7 @@
 # Techshop
+  [Go to master branch to view the code]
+
  Fully fledged E-commerce platform built from ground up with 
- [Go to master branch to view the code]
  
  - ReactJs + Redux with React-bootstrap UI library and CSS for styling on the frontend 
  - ExpressJs (a nodejs framework) and Mongodb as the database with Mongoose ODM
