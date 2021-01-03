@@ -4,7 +4,7 @@
  
  - ReactJs + Redux with React-bootstrap UI library and CSS for styling on the frontend 
  - ExpressJs (a nodejs framework) and Mongodb as the database with Mongoose ODM
- - Bundled JS, CSS, jpg/png file with webpack and babel
+ - Bundled JS, CSS, jpg/png files with webpack and babel
  - Deployed to Heroku
  
  Has the following features/optimizations integrated in this web app:
