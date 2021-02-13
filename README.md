@@ -5,7 +5,6 @@
  
  - ReactJs + Redux with React-bootstrap UI library and CSS for styling on the frontend 
  - ExpressJs (a nodejs framework) and Mongodb as the database with Mongoose ODM
- - Bundled JS, CSS, jpg/png files with webpack and babel
  - Deployed to Heroku
  
  Improved performance of the web app upto 80-90% with code splitting (Dynamic Imports), Lazy Loading the images, configuring webpack and by doing code optimizations.
