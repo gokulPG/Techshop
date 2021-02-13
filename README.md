@@ -7,8 +7,6 @@
  - ExpressJs (a nodejs framework) and Mongodb as the database with Mongoose ODM
  - Deployed to Heroku
  
- Improved performance of the web app upto 80-90% with code splitting (Dynamic Imports), Lazy Loading the images, configuring webpack and by doing code optimizations.
-
  Web app has the following features integrated:
  1. Top products Carousel
  2. Add Products to the Cart
