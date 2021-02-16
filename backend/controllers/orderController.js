@@ -37,7 +37,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
 const getOrderById = asyncHandler(async (req, res) => {
   //alongside Order info, from User Model name , email fields will be retrieved and added to 'order'
-  const order = await await Order.findById(req.params.id).populate(
+  const order = await Order.findById(req.params.id).populate(
     "user",
     "name email"
   );
@@ -52,7 +52,7 @@ const getOrderById = asyncHandler(async (req, res) => {
 
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   //alongside Order info, from User Model name , email fields will be retrieved and added to 'order'
-  const order = await await Order.findById(req.params.id);
+  const order = await Order.findById(req.params.id);
 
   if (order) {
     order.isPaid = true;
@@ -73,7 +73,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 
 const getMyOrders = asyncHandler(async (req, res) => {
   //alongside Order info, from User Model name , email fields will be retrieved and added to 'order'
-  const orders = await await Order.find({ user: req.user._id });
+  const orders = await Order.find({ user: req.user._id });
   res.json(orders);
 });
 
@@ -86,7 +86,7 @@ const getOrders = asyncHandler(async (req, res) => {
 //@desc - update order to delivered
 // @route - GET /api/orders/:id/deliver
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
-  const order = await await Order.findById(req.params.id);
+  const order = await Order.findById(req.params.id);
 
   if (order) {
     order.isDelivered = true;
