@@ -1,4 +1,4 @@
-# Techshop
+# Techshop (https://techshoppingapp.herokuapp.com/)
   [Go to master branch to view the code]
 
  Fully fledged E-commerce platform built from ground up with 
